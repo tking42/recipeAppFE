@@ -1,10 +1,10 @@
 import {useState} from "react";
 
 const RecipeModal = ({ recipe, onClose }) => {
-    const [activeTab, setActiveTab] = useState('ingredients'); // Default to ingredients tab
+    const [toggleIngredients, setToggleIngredients] = useState('ingredients'); // Default to ingredients tab
 
     const toggleTab = (tab) => {
-        setActiveTab(tab)
+        setToggleIngredients(tab)
     }
 
     return (
@@ -26,17 +26,17 @@ const RecipeModal = ({ recipe, onClose }) => {
                 <p className="text-xl font-bold mb-4">
                     <span
                         onClick={() => toggleTab('ingredients')}
-                        className={`cursor-pointer ${activeTab === 'ingredients' ? 'text-gray-700 font-bold' : 'text-gray-400 font-light'}`}
+                        className={`cursor-pointer ${toggleIngredients === 'ingredients' ? 'text-gray-700 font-bold' : 'text-gray-400 font-light'}`}
                     >
                         Ingredients
                     </span> | <span
                         onClick={() => toggleTab('method')}
-                        className={`cursor-pointer ${activeTab === 'method' ? 'text-gray-700 font-bold' : 'text-gray-400 font-light'}`}
+                        className={`cursor-pointer ${toggleIngredients === 'method' ? 'text-gray-700 font-bold' : 'text-gray-400 font-light'}`}
                     >
                         Method
                     </span>
                 </p>
-                {activeTab === 'ingredients' ? (
+                {toggleIngredients === 'ingredients' ? (
                     <div className="grid grid-cols-2">
                         {recipe.ingredients.split('#').map((ing, index) => (
                             <ul key={index}>

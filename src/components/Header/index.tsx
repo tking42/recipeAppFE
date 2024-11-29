@@ -13,8 +13,6 @@ const Header = () => {
                     <p className='text-3xl'>Use the recipe finder to turn your spare ingredients into something
                         delicious from over <strong> 45,000 </strong>recipes. Whether you want a sweet treat or a fancy dinner, there will be a recipe for you!
                     </p>
-                    <br/>
-                    <button className='text-3xl'>SIGN UP HERE</button>
                 </div>
             </div>
         </>
