@@ -4,8 +4,7 @@ const Nav = () => {
         <div className='flex p-2 mx-8 mt-10 justify-between'>
             <p>Thomas King</p>
             <div className='flex gap-6'>
-                <p>LOG IN</p>
-                <p>SIGN UP</p>
+                <p>LOG IN / SIGN UP</p>
             </div>
         </div>
     )
