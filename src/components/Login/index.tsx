@@ -1,11 +1,12 @@
 import { useState } from "react";
 
-const Login = ({setShowLoginModel}) => {
+const Login = ({setShowLoginModel, setLoggedIn, setUser}) => {
     const [emailReg, setEmailReg] = useState("");
     const [passwordReg, setPasswordReg] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [toggleLogin, setToggleLogin] = useState(false)
+    const [message, setMessage] = useState('')
 
     const handleRegister = async (e) => {
         e.preventDefault();
@@ -18,14 +19,17 @@ const Login = ({setShowLoginModel}) => {
                 emailReg,
                 passwordReg,
             }),
-        });
+        })
+
+        const data = await response.json()
 
         if (response.ok) {
-            alert("Registration successful!");
-        } else {
-            alert('Registration failed')
+            setMessage('Registration Successful.')
+            console.log('hello')
+            setEmailReg('')
+            setPasswordReg('')
         }
-    };
+    }
 
     const handleLogin = async (e) => {
         e.preventDefault();
@@ -43,9 +47,13 @@ const Login = ({setShowLoginModel}) => {
         const data = await response.json();
 
         if (response.ok) {
-            alert(`Login successful! Welcome ${data.email}`)
+            setLoggedIn(true)
+            setShowLoginModel(false)
+            setUser(data.email)
         } else {
-            alert('Email or Password incorrect')
+            setMessage('Incorrect Email or Password.')
+            setEmail('')
+            setPassword('')
         }
     };
 
@@ -75,11 +83,15 @@ const Login = ({setShowLoginModel}) => {
                         >
                             Register
                         </button>
+                        <p className='text-center text-green-500'>{message}</p>
                         <p className="mt-4 text-center text-gray-700">
                             Already have an account?{" "}
                             <span
                                 className="text-blue-500 cursor-pointer"
-                                onClick={() => setToggleLogin(false)}
+                                onClick={() => {
+                                    setToggleLogin(false)
+                                    setMessage('')
+                                }}
                             >
                 Log In
               </span>
@@ -107,11 +119,15 @@ const Login = ({setShowLoginModel}) => {
                         >
                             Login
                         </button>
+                        <p className='text-center m-4 text-red-600'>{message}</p>
                         <p className="mt-4 text-center text-gray-700">
                             Don't have an account?{" "}
                             <span
                                 className="text-blue-500 cursor-pointer"
-                                onClick={() => setToggleLogin(true)}
+                                onClick={() => {
+                                    setToggleLogin(true)
+                                    setMessage('')
+                                }}
                             >
                 Register
               </span>

@@ -1,27 +1,33 @@
 import { useState } from "react";
 import Login from "../Login";
 
-const Nav = () => {
-    const [showLoginModel, setShowLoginModel] = useState(false)
+const Nav = ({ setLoggedIn, loggedIn, user, setUser }) => {
+    const [showLoginModel, setShowLoginModel] = useState(false);
+
     const handleClick = () => {
-        setShowLoginModel(true)
+        if (loggedIn === false) {
+            setShowLoginModel(true);
+        } else {
+            setLoggedIn(false)
+        }
     }
 
     return (
         <div className="flex p-2 mx-8 mt-10 justify-between">
-            <p className="text-lg font-bold">Thomas King</p>
+            <p className="text-lg">{loggedIn ? user : "Crimble Crumble"}</p>
             <div className="flex gap-6">
                 <button
                     className="cursor-pointer hover:underline"
                     onClick={handleClick}
                 >
-                    LOG IN / SIGN UP
+                    {loggedIn ? "LOG OUT" : "LOG IN / SIGN UP"}
                 </button>
             </div>
-            {showLoginModel && <Login setShowLoginModel={setShowLoginModel}/>}
+            {showLoginModel && !loggedIn && (
+                <Login setUser={setUser} setLoggedIn={setLoggedIn} setShowLoginModel={setShowLoginModel} />
+            )}
         </div>
-    );
-};
+    )
+}
 
-export default Nav
-
+export default Nav;
