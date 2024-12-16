@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Login from "../Login";
 
-const Nav = ({ setLoggedIn, loggedIn, user, setUser }) => {
+const Nav = ({ setLoggedIn, loggedIn, setUser, hide }) => {
     const [showLoginModel, setShowLoginModel] = useState(false);
 
     const handleClick = () => {
@@ -13,14 +13,13 @@ const Nav = ({ setLoggedIn, loggedIn, user, setUser }) => {
     }
 
     return (
-        <div className="flex p-2 mx-8 mt-10 justify-between">
-            <p className="text-lg">{loggedIn ? user : "Crimble Crumble"}</p>
-            <div className="flex gap-6">
+        <div className={`m-4 text-center ${hide}`}>
+            <div>
                 <button
                     className="cursor-pointer hover:underline"
                     onClick={handleClick}
                 >
-                    {loggedIn ? "LOG OUT" : "LOG IN / SIGN UP"}
+                    {loggedIn ? <p>LOG OUT</p> : <p>LOG IN / SIGN UP</p>}
                 </button>
             </div>
             {showLoginModel && !loggedIn && (

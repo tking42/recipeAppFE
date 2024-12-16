@@ -7,11 +7,13 @@ function App() {
 
     const [loggedIn, setLoggedIn] = useState(false)
     const [user, setUser] = useState('')
+    const [hide, setHide] = useState('')
+
   return (
       <body>
-      <Nav user={user} setUser={setUser} loggedIn={loggedIn} setLoggedIn={setLoggedIn}></Nav>
-      <h1 className='text-9xl text-center uppercase font-extrabold'>Recipe Finder</h1>
-      <Header user={user} setUser={setUser} loggedIn={loggedIn}></Header>
+      <h1 className='mt-4 text-8xl text-center uppercase font-extrabold'>Recipe Finder</h1>
+      <Nav setUser={setUser} loggedIn={loggedIn} setLoggedIn={setLoggedIn} hide={hide}></Nav>
+      <Header user={user} loggedIn={loggedIn} setHide={setHide} hide={hide}></Header>
       </body>
   )
 }
