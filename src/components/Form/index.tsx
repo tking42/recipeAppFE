@@ -48,8 +48,19 @@ const Form = ({hide, setHide, user, userRecipes, getSavedRecipes}) => {
                         </button>
                     </form>
             </div>
-            <RecipeResults ing1={ingredient1} ing2={ingredient2} ing3={ingredient3} ing4={ingredient4} ing5={ingredient5}
-                           recipesReturned={recipesReturned} setHidden={setHidden} setHide={setHide} hidden={hidden} user={user} userRecipes={userRecipes} getSavedRecipes={getSavedRecipes}/>
+            <RecipeResults ing1={ingredient1}
+                           ing2={ingredient2}
+                           ing3={ingredient3}
+                           ing4={ingredient4}
+                           ing5={ingredient5}
+                           recipesReturned={recipesReturned}
+                           setHidden={setHidden}
+                           setHide={setHide}
+                           hidden={hidden}
+                           user={user}
+                           userRecipes={userRecipes}
+                           getSavedRecipes={getSavedRecipes}
+                        />
         </>
     );
 };

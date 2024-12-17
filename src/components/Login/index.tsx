@@ -10,6 +10,7 @@ const Login = ({ setShowLoginModel, setLoggedIn, setUser }) => {
     const [toggleLogin, setToggleLogin] = useState(false)
     const [message, setMessage] = useState("")
     const [colourMessage, setColourMessage] = useState('green')
+
     const handleRegister = async (e) => {
         e.preventDefault()
         const response = await fetch(`http://localhost:3002/register`, {
@@ -56,7 +57,8 @@ const Login = ({ setShowLoginModel, setLoggedIn, setUser }) => {
             }),
         });
 
-        const data = await response.json();
+        const data = await response.json()
+
         if (data.type === 'error') {
             setColourMessage('red')
         } else {

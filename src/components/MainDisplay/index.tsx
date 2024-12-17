@@ -1,7 +1,7 @@
 import Form from "../Form";
 import SavedRecipes from "../SavedRecipes";
 import {useState} from "react";
-const Header = ({loggedIn, user, hide, setHide}) => {
+const MainDisplay = ({loggedIn, user, hide, setHide}) => {
 
     const [userRecipes, setUserRecipes] = useState([])
     const [hideSaved, setHideSaved] = useState('hidden')
@@ -24,7 +24,6 @@ const Header = ({loggedIn, user, hide, setHide}) => {
         setHide('hidden')
     }
 
-    const userEmail = user.email
     return (
         <>
             {loggedIn === false ? (
@@ -49,20 +48,24 @@ const Header = ({loggedIn, user, hide, setHide}) => {
                     className="flex justify-center gap-10 ms-12 p-6">
                     <div className={`${hide} text-4xl w-1/3`}>
                         <p className="">
-                            Welcome {userEmail}!<br/> Use the form to find recipes
-                            from the ingredients you want to use. If you find one you like, save it to your saved
-                            recipes for later.
+                            Welcome {user.email}!<br/> Use the form to find recipes
+                            from the ingredients you want to use. If you find one you like, save it to your favourite
+                            recipes.
                         </p>
                         <p
-                            className="mt-6 text-blue-500 hover:text-blue-700 cursor-pointer hover:underline"
+                            className="mt-6 text-blue-500 hover:text-blue-700 cursor-pointer hover:underline font-extrabold"
                             onClick={() => (getSavedRecipes(), changeDisplay())}
                         >
-                            Saved Recipes
+                           My Favourite Recipes
                         </p>
                     </div>
 
                     <div>
-                        <Form hide={hide} user={user} setHide={setHide} userRecipes={userRecipes} getSavedRecipes={getSavedRecipes}/>
+                        <Form hide={hide}
+                              user={user}
+                              setHide={setHide}
+                              userRecipes={userRecipes}
+                              getSavedRecipes={getSavedRecipes}/>
                         <SavedRecipes
                             userRecipes={userRecipes}
                             setHide={setHide}
@@ -79,4 +82,4 @@ const Header = ({loggedIn, user, hide, setHide}) => {
     )
 }
 
-export default Header
+export default MainDisplay

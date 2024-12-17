@@ -754,6 +754,14 @@ video {
   margin-inline-start: 1.5rem;
 }
 
+.ms-4 {
+  margin-inline-start: 1rem;
+}
+
+.ms-8 {
+  margin-inline-start: 2rem;
+}
+
 .block {
   display: block;
 }
@@ -1027,6 +1035,10 @@ video {
   padding: 2rem;
 }
 
+.p-0 {
+  padding: 0px;
+}
+
 .px-4 {
   padding-left: 1rem;
   padding-right: 1rem;
@@ -1102,6 +1114,11 @@ video {
 .text-lg {
   font-size: 1.125rem;
   line-height: 1.75rem;
+}
+
+.text-xs {
+  font-size: 0.75rem;
+  line-height: 1rem;
 }
 
 .font-semibold {
@@ -1255,6 +1272,11 @@ video {
 .hover\:text-blue-700:hover {
   --tw-text-opacity: 1;
   color: rgb(29 78 216 / var(--tw-text-opacity));
+}
+
+.hover\:text-green-700:hover {
+  --tw-text-opacity: 1;
+  color: rgb(21 128 61 / var(--tw-text-opacity));
 }
 
 .hover\:underline:hover {

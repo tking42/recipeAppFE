@@ -1,6 +1,6 @@
 import RecipeCard from "../RecipeCard";
 
-const RecipeResults = ({ recipesReturned, hidden, setHidden, setHide, ing1, ing2, ing3, ing4, ing5, user, userRecipes, getSavedRecipes}) => {
+const RecipeResults = ({recipesReturned, hidden, setHidden, setHide, ing1, ing2, ing3, ing4, ing5, user, userRecipes, getSavedRecipes}) => {
     const sortedRecipes = recipesReturned.sort((a, b) => b.ingredient_match_count - a.ingredient_match_count);
 
     return (
@@ -14,7 +14,11 @@ const RecipeResults = ({ recipesReturned, hidden, setHidden, setHide, ing1, ing2
                 ) : (
                     sortedRecipes.slice(0, 10).map((recipe, index) => (
                         <div key={index} className=''>
-                            <RecipeCard userRecipes={userRecipes} recipe={recipe} user={user} getSavedRecipes={getSavedRecipes}/>
+                            <RecipeCard
+                                userRecipes={userRecipes}
+                                recipe={recipe} user={user}
+                                getSavedRecipes={getSavedRecipes}
+                              />
                         </div>
                     ))
                 )}
@@ -24,5 +28,5 @@ const RecipeResults = ({ recipesReturned, hidden, setHidden, setHide, ing1, ing2
     );
 };
 
-export default RecipeResults;
+export default RecipeResults
 

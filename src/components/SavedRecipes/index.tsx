@@ -10,7 +10,9 @@ const SavedRecipes = ({ userRecipes, user, setHide, hideSaved, setHideSaved, get
             <div className='flex flex-wrap justify-center gap-6 text-gray-700 m-8'>
                 {userRecipes.map((recipe, index) => (
                         <div key={index} className=''>
-                            <RecipeCard recipe={recipe} getSavedRecipes={getSavedRecipes} userRecipes={userRecipes} user={user} />
+                            <RecipeCard recipe={recipe}
+                                        getSavedRecipes={getSavedRecipes}
+                                        userRecipes={userRecipes} user={user}/>
                         </div>
                     ))
                 }

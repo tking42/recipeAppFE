@@ -1,15 +1,17 @@
-import { useState } from 'react';
+
 import RecipeModal from "../RecipeModal"
+import {useState} from "react";
 
 const RecipeCard = ({recipe, user, getSavedRecipes, userRecipes}) => {
-    const [isModalOpen, setIsModalOpen] = useState(false);
 
+    const [isModalOpen, setIsModalOpen] = useState(false)
     const handleCardClick = () => {
-        setIsModalOpen(true);
+        setIsModalOpen(true)
     }
 
     const onClose = () => {
         setIsModalOpen(false)
+        getSavedRecipes()
     }
 
     return (
@@ -23,7 +25,12 @@ const RecipeCard = ({recipe, user, getSavedRecipes, userRecipes}) => {
                     <p>{recipe.ingredient_match_count}/5 ingredients</p>
                 )}
             </div>
-            {isModalOpen && <RecipeModal getSavedRecipes={getSavedRecipes} userRecipes={userRecipes} recipe={recipe} user={user} onClose={onClose} />}
+            {isModalOpen && recipe && <RecipeModal
+                             getSavedRecipes={getSavedRecipes}
+                             userRecipes={userRecipes}
+                             recipe={recipe} user={user}
+                             onClose={onClose}
+                            />}
         </div>
     )
 }

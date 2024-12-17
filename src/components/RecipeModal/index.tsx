@@ -1,24 +1,25 @@
 import {useState} from "react";
 
 const RecipeModal = ({ recipe, onClose, user, userRecipes, getSavedRecipes}) => {
+
     const [toggleIngredients, setToggleIngredients] = useState('ingredients')
     const toggle = (x) => {
         setToggleIngredients(x)
     }
 
     const handleSaveClick = async () => {
-                const recipe_id = recipe.id
-                const user_id = user.id
-                await fetch(`http://localhost:3002/saveRecipe`, {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json",
-                    },
-                    body: JSON.stringify({
-                        recipe_id,
-                        user_id
-                    }),
-                })
+        const recipe_id = recipe.id
+        const user_id = user.id
+        await fetch(`http://localhost:3002/saveRecipe`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                recipe_id,
+                user_id
+            }),
+        })
         getSavedRecipes()
     }
 
@@ -91,11 +92,11 @@ const RecipeModal = ({ recipe, onClose, user, userRecipes, getSavedRecipes}) => 
                     isRecipeSaved ?
                         <p onClick={handleRemoveClick}
                                                       className="mt-2 text-red-500 hover:text-blue-700 cursor-pointer">Remove
-                            from saved recipes</p>
+                            from favourite recipes</p>
                         :
                         <p onClick={handleSaveClick}
                                                         className="mt-2 text-green-500 hover:text-blue-700 cursor-pointer">Save
-                            to saved recipes</p>
+                            to favourite recipes</p>
                     }
             </div>
         </div>
