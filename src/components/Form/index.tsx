@@ -2,7 +2,7 @@ import { useState } from 'react';
 import IngredientInput from "../IngredientInput";
 import RecipeResults from "../RecipeResults";
 
-const Form = ({hide, setHide, user, userRecipes, getSavedRecipes}) => {
+const Form = ({hide, setHide, user, userRecipes, getSavedRecipes, setWidth, setGap}) => {
     const [ingredient1, setIngredient1] = useState('');
     const [ingredient2, setIngredient2] = useState('');
     const [ingredient3, setIngredient3] = useState('');
@@ -26,13 +26,15 @@ const Form = ({hide, setHide, user, userRecipes, getSavedRecipes}) => {
         setHidden('')
         setHide('hidden')
         setRecipesReturned(results.results)
+        setWidth('')
+        setGap('')
     }
 
     return (
         <>
-            <div className={`max-w-lg mx-auto  p-6 bg-white rounded-lg shadow-lg text-gray-700 ${hide}`}>
+            <div className={`max-w-lg mx-auto p-6 bg-white rounded-lg shadow-lg text-gray-700 text-center mb-4 ${hide}`}>
                 <p className="text-center m-4">Please enter 5 ingredients you would like to cook with!</p>
-                    <form onSubmit={handleSubmit}>
+                    <form onSubmit={handleSubmit} className='text-left'>
                         {['ingredient1', 'ingredient2', 'ingredient3', 'ingredient4', 'ingredient5'].map((ingredient, index) => (
                             <IngredientInput
                                 key={ingredient}
@@ -60,6 +62,8 @@ const Form = ({hide, setHide, user, userRecipes, getSavedRecipes}) => {
                            user={user}
                            userRecipes={userRecipes}
                            getSavedRecipes={getSavedRecipes}
+                           setWidth={setWidth}
+                           setGap={setGap}
                         />
         </>
     );

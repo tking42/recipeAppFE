@@ -1,10 +1,14 @@
 import Form from "../Form";
 import SavedRecipes from "../SavedRecipes";
 import {useState} from "react";
+import WelcomeMessage from "../WelcomeMessage";
+import LoggedInMessage from "../LoggedInMessage";
 const MainDisplay = ({loggedIn, user, hide, setHide}) => {
 
     const [userRecipes, setUserRecipes] = useState([])
     const [hideSaved, setHideSaved] = useState('hidden')
+    const [width, setWidth] = useState('1/3')
+    const [gap, setGap] = useState('10')
 
     const getSavedRecipes = async () => {
         const user_id = user.id
@@ -26,55 +30,36 @@ const MainDisplay = ({loggedIn, user, hide, setHide}) => {
 
     return (
         <>
-            {loggedIn === false ? (
-                <>
-                    <div className="flex justify-evenly items-center m-12 p-8">
-                        <img
-                            src="backgroundImg.jpg"
-                            alt="food"
-                            className="w-1/3 h-auto rounded-full transform rotate-120 skew-x-12"
-                        />
-                        <div className='w-1/3'>
-                            <p className='text-7xl font-bold '>Hungry?</p><br />
-                            <p className='text-3xl'>
-                                Use the recipe finder to turn your spare ingredients into something
-                                delicious from over <strong>45,000</strong> recipes. Whether you want a sweet treat or a fancy dinner, there will be a recipe for you!
-                            </p>
-                        </div>
-                    </div>
-                </>
+            {!loggedIn ? (
+              <WelcomeMessage/>
             ) : (
-                <div
-                    className="flex justify-center gap-10 ms-12 p-6">
-                    <div className={`${hide} text-4xl w-1/3`}>
-                        <p className="">
-                            Welcome {user.email}!<br/> Use the form to find recipes
-                            from the ingredients you want to use. If you find one you like, save it to your favourite
-                            recipes.
-                        </p>
-                        <p
-                            className="mt-6 text-blue-500 hover:text-blue-700 cursor-pointer hover:underline font-extrabold"
-                            onClick={() => (getSavedRecipes(), changeDisplay())}
-                        >
-                           My Favourite Recipes
-                        </p>
+                <div>
+                <div className={`flex flex-col md:flex-row md:justify-center md:content-normal md:gap-${gap} md:p-6 text-center md:text-left mx-4`}>
+                    <div className={`md:w-${width}`}>
+                    <LoggedInMessage changeDisplay={changeDisplay}
+                                         user={user}
+                                         getSavedRecipes={getSavedRecipes}
+                                         hide={hide}/>
                     </div>
-
                     <div>
                         <Form hide={hide}
                               user={user}
                               setHide={setHide}
                               userRecipes={userRecipes}
-                              getSavedRecipes={getSavedRecipes}/>
-                        <SavedRecipes
-                            userRecipes={userRecipes}
-                            setHide={setHide}
-                            setHideSaved={setHideSaved}
-                            hideSaved={hideSaved}
-                            user={user}
-                            getSavedRecipes={getSavedRecipes}
-                        />
+                              getSavedRecipes={getSavedRecipes}
+                        setWidth={setWidth}
+                        setGap={setGap}/>
                     </div>
+
+                </div>
+                <SavedRecipes
+                userRecipes={userRecipes}
+            setHide={setHide}
+            setHideSaved={setHideSaved}
+            hideSaved={hideSaved}
+            user={user}
+            getSavedRecipes={getSavedRecipes}
+        />
                 </div>
 
             )}

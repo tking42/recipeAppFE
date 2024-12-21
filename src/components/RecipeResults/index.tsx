@@ -1,6 +1,6 @@
 import RecipeCard from "../RecipeCard";
 
-const RecipeResults = ({recipesReturned, hidden, setHidden, setHide, ing1, ing2, ing3, ing4, ing5, user, userRecipes, getSavedRecipes}) => {
+const RecipeResults = ({recipesReturned, hidden, setHidden, setHide, ing1, ing2, ing3, ing4, ing5, user, userRecipes, getSavedRecipes, setWidth, setGap}) => {
     const sortedRecipes = recipesReturned.sort((a, b) => b.ingredient_match_count - a.ingredient_match_count);
 
     return (
@@ -23,7 +23,7 @@ const RecipeResults = ({recipesReturned, hidden, setHidden, setHide, ing1, ing2,
                     ))
                 )}
             </div>
-            <p className='underline text-2xl text-center mb-6 cursor-pointer' onClick={() => {setHidden('hidden'); setHide('')}}>BACK</p>
+            <p className='underline text-2xl text-center mb-6 cursor-pointer' onClick={() => {setHidden('hidden'); setHide(''); setWidth('1/3'); setGap('10')}}>BACK</p>
         </div>
     );
 };

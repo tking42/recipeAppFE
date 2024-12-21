@@ -4,8 +4,8 @@ const SavedRecipes = ({ userRecipes, user, setHide, hideSaved, setHideSaved, get
 
     return (
         <div className={`${hideSaved}`}>
-            <p className='text-center text-2xl m-6'>
-                Your Saved Recipes:
+            <p className='text-center text-2xl'>
+                Favourite Recipes:
             </p>
             <div className='flex flex-wrap justify-center gap-6 text-gray-700 m-8'>
                 {userRecipes.map((recipe, index) => (

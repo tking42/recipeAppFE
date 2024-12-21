@@ -10,9 +10,7 @@ function App() {
 
     return (
         <div className="App">
-            <header>
-                <h1 className='mt-4 text-8xl text-center uppercase font-extrabold'>Recipe Finder</h1>
-            </header>
+            <h1 className='mt-4 text-8xl text-center uppercase font-extrabold'>Recipe Finder</h1>
             <Nav setUser={setUser} loggedIn={loggedIn} setLoggedIn={setLoggedIn} hide={hide} />
             <MainDisplay user={user} loggedIn={loggedIn} setHide={setHide} hide={hide} />
         </div>
