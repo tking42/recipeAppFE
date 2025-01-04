@@ -1,5 +1,5 @@
 
-import RecipeModal from "../RecipeModal"
+import RecipeModal from "../RecipeModal/index.jsx"
 import {useState} from "react";
 
 const RecipeCard = ({recipe, user, getSavedRecipes, userRecipes}) => {

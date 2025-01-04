@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import IngredientInput from "../IngredientInput";
-import RecipeResults from "../RecipeResults";
+import IngredientInput from "../IngredientInput/index.jsx";
+import RecipeResults from "../RecipeResults/index.jsx";
 
 const Form = ({hide, setHide, user, userRecipes, getSavedRecipes, setWidth, setGap}) => {
     const [ingredient1, setIngredient1] = useState('');
@@ -32,8 +32,8 @@ const Form = ({hide, setHide, user, userRecipes, getSavedRecipes, setWidth, setG
 
     return (
         <>
-            <div className={`max-w-lg mx-auto p-6 bg-white rounded-lg shadow-lg text-gray-700 text-center mb-4 ${hide}`}>
-                <p className="text-center m-4">Please enter 5 ingredients you would like to cook with!</p>
+            <div className={`max-w-lg min-w-10 mx-auto p-6 bg-white rounded-lg shadow-lg text-gray-700 text-center mb-4 ${hide}`}>
+                <p className="text-center m-2">Enter 5 ingredients you would like to cook with.</p>
                     <form onSubmit={handleSubmit} className='text-left'>
                         {['ingredient1', 'ingredient2', 'ingredient3', 'ingredient4', 'ingredient5'].map((ingredient, index) => (
                             <IngredientInput
@@ -45,7 +45,7 @@ const Form = ({hide, setHide, user, userRecipes, getSavedRecipes, setWidth, setG
                         ))}
                         <button
                             type="submit"
-                            className="w-full p-4 mt-4 bg-blue-500 text-white font-semibold rounded-md shadow-md">
+                            className="w-full p-4 mt-2 bg-blue-500 text-white font-semibold rounded-md shadow-md">
                             Find Recipe's
                         </button>
                     </form>
@@ -55,6 +55,11 @@ const Form = ({hide, setHide, user, userRecipes, getSavedRecipes, setWidth, setG
                            ing3={ingredient3}
                            ing4={ingredient4}
                            ing5={ingredient5}
+                           setIngredient1={setIngredient1}
+                           setIngredient2={setIngredient2}
+                           setIngredient3={setIngredient3}
+                           setIngredient4={setIngredient4}
+                           setIngredient5={setIngredient5}
                            recipesReturned={recipesReturned}
                            setHidden={setHidden}
                            setHide={setHide}

@@ -9,8 +9,8 @@ const WelcomeMessage = () => {
             <div className="md:w-1/3">
                 <p className="text-6xl font-extrabold m-2">Hungry?</p>
                 <p className="text-2xl">
-                    Turn your space ingredients into delicious dishes. With over <strong>45,000</strong> recipes, find the perfect dish for any craving — whether it's a sweet treat or a fancy dinner.
-                    Sign up / Log in to use our recipe finder and start cooking today!
+                    Turn your spare ingredients into delicious dishes. With over <strong>45,000</strong> recipes, find the perfect dish for any craving — whether it's a sweet treat or a fancy dinner.
+                    Log In / Sign up to use our recipe finder and start cooking today!
                 </p>
             </div>
         </div>

@@ -1,9 +1,9 @@
 const RegisterForm = ({emailReg, passwordReg, confirmEmailReg, confirmPasswordReg, setColourMessage, setMessage, setEmail,
                           setPassword, colourMessage, message, setToggleLogin, setConfirmPasswordReg, setEmailReg,
-                          setPasswordReg, setConfirmEmailReg}) => {
+                          setPasswordReg, setConfirmEmailReg, lastName, firstName, setLastName, setFirstName}) => {
     const handleRegister = async (e) => {
         e.preventDefault()
-        const response = await fetch(`http://localhost:3002/register`, {
+        const response = await fetch(`http://localhost:3002//register`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -12,7 +12,9 @@ const RegisterForm = ({emailReg, passwordReg, confirmEmailReg, confirmPasswordRe
                 emailReg,
                 passwordReg,
                 confirmEmailReg,
-                confirmPasswordReg
+                confirmPasswordReg,
+                lastName,
+                firstName
             }),
         })
 
@@ -29,6 +31,8 @@ const RegisterForm = ({emailReg, passwordReg, confirmEmailReg, confirmPasswordRe
             setPasswordReg("");
             setConfirmEmailReg("");
             setConfirmPasswordReg("");
+            setFirstName("")
+            setLastName("")
         } else {
             setMessage(data.message);
         }
@@ -36,6 +40,20 @@ const RegisterForm = ({emailReg, passwordReg, confirmEmailReg, confirmPasswordRe
 
     return (
         <div className="text-gray-700">
+            <input
+                type="text"
+                className="border p-2 w-full mb-2"
+                placeholder="First Name"
+                value={firstName}
+                onChange={(e) => setFirstName(e.target.value)}
+            />
+            <input
+                type="text"
+                className="border p-2 w-full mb-2"
+                placeholder="Last Name"
+                value={lastName}
+                onChange={(e) => setLastName(e.target.value)}
+            />
             <input
                 type="email"
                 className="border p-2 w-full mb-2"

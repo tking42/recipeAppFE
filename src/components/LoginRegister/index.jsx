@@ -1,6 +1,6 @@
 import { useState } from "react";
-import LoginForm from "../LoginForm";
-import RegisterForm from "../RegisterForm";
+import LoginForm from "../LoginForm/index.jsx";
+import RegisterForm from "../RegisterForm/index.jsx";
 
 const LoginRegister = ({ setShowLoginModel, setLoggedIn, setUser }) => {
     const [emailReg, setEmailReg] = useState("")
@@ -12,7 +12,8 @@ const LoginRegister = ({ setShowLoginModel, setLoggedIn, setUser }) => {
     const [toggleLogin, setToggleLogin] = useState(true)
     const [message, setMessage] = useState("")
     const [colourMessage, setColourMessage] = useState('green')
-
+    const [firstName, setFirstName] = useState("")
+    const [lastName, setLastName] = useState("")
 
     return (
         <div className="fixed inset-0 bg-gray-500 bg-opacity-50 flex justify-center items-center z-50">
@@ -52,6 +53,10 @@ const LoginRegister = ({ setShowLoginModel, setLoggedIn, setUser }) => {
                                  confirmEmailReg={confirmEmailReg}
                                  passwordReg={passwordReg}
                                  emailReg={emailReg}
+                                 lastName={lastName}
+                                 firstName={firstName}
+                                 setFirstName={setFirstName}
+                                 setLastName={setLastName}
                    />
                 )}
 

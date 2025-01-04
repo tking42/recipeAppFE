@@ -1,27 +1,13 @@
-import Form from "../Form";
-import SavedRecipes from "../SavedRecipes";
+import Form from "../Form/index.jsx";
+import SavedRecipes from "../SavedRecipes/index.jsx";
 import {useState} from "react";
-import WelcomeMessage from "../WelcomeMessage";
-import LoggedInMessage from "../LoggedInMessage";
-const MainDisplay = ({loggedIn, user, hide, setHide}) => {
+import WelcomeMessage from "../WelcomeMessage/index.jsx";
+import LoggedInMessage from "../LoggedInMessage/index.jsx";
+const MainDisplay = ({loggedIn, user, hide, setHide, setHideWhenUseSearch, getSavedRecipes, userRecipes}) => {
 
-    const [userRecipes, setUserRecipes] = useState([])
     const [hideSaved, setHideSaved] = useState('hidden')
     const [width, setWidth] = useState('1/3')
     const [gap, setGap] = useState('10')
-
-    const getSavedRecipes = async () => {
-        const user_id = user.id
-        const response = await fetch(`http://localhost:3002/getSavedRecipes?user_id=${user_id}`, {
-            method: "GET",
-            headers: {
-                "Content-Type": "application/json",
-            }
-        })
-        const data = await response.json()
-        const savedRecipes = data.savedRecipes
-        setUserRecipes(savedRecipes)
-    }
 
     const changeDisplay=  () => {
         setHideSaved('')
@@ -29,12 +15,12 @@ const MainDisplay = ({loggedIn, user, hide, setHide}) => {
     }
 
     return (
-        <>
+        <div className={setHideWhenUseSearch}>
             {!loggedIn ? (
               <WelcomeMessage/>
             ) : (
                 <div>
-                <div className={`flex flex-col md:flex-row md:justify-center md:content-normal md:gap-${gap} md:p-6 text-center md:text-left mx-4`}>
+                <div className={`flex flex-col md:flex-row md:justify-center gap-4 md:content-normal md:gap-${gap} md:p-6 text-center md:text-left mx-4`}>
                     <div className={`md:w-${width}`}>
                     <LoggedInMessage changeDisplay={changeDisplay}
                                          user={user}
@@ -52,18 +38,17 @@ const MainDisplay = ({loggedIn, user, hide, setHide}) => {
                     </div>
 
                 </div>
-                <SavedRecipes
-                userRecipes={userRecipes}
-            setHide={setHide}
-            setHideSaved={setHideSaved}
-            hideSaved={hideSaved}
-            user={user}
-            getSavedRecipes={getSavedRecipes}
+                <SavedRecipes userRecipes={userRecipes}
+                              setHide={setHide}
+                              setHideSaved={setHideSaved}
+                              hideSaved={hideSaved}
+                              user={user}
+                              getSavedRecipes={getSavedRecipes}
         />
                 </div>
 
             )}
-        </>
+        </div>
     )
 }
 

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import ConfirmationModal from "../ConfirmationModel";
+import ConfirmationModal from "../ConfirmationModel/index.jsx";
 const RecipeModal = ({ recipe, onClose, user, userRecipes, getSavedRecipes }) => {
     const [toggleIngredients, setToggleIngredients] = useState('ingredients');
     const [showConfirmModal, setShowConfirmModal] = useState(false)
@@ -66,7 +66,7 @@ const RecipeModal = ({ recipe, onClose, user, userRecipes, getSavedRecipes }) =>
                     </button>
                 </div>
 
-                <p className="text-lg sm:text-xl font-bold mb-4">
+                <p className="text-lg sm:text-xl text-left font-bold mb-4">
           <span
               onClick={() => toggle('ingredients')}
               className={`cursor-pointer ${toggleIngredients === 'ingredients' ? 'text-gray-700 font-bold' : 'text-gray-400 font-light'}`}
@@ -90,27 +90,36 @@ const RecipeModal = ({ recipe, onClose, user, userRecipes, getSavedRecipes }) =>
                             ))}
                         </div>
                     ) : (
-                        <div>
+                        <div className='leading-relaxed text-left'>
                             <p>
-                                {recipe.instructions.startsWith('Watch how to make this recipe.')
-                                    ? recipe.instructions.slice(30)
-                                    : recipe.instructions}
+                                {(() => {
+                                    let instructions = recipe.instructions;
+                                    if (instructions.startsWith('Watch how to make this recipe.')) {
+                                        instructions = instructions.slice(30);
+                                    }
+                                    const lastSentence = instructions.split('. ').pop();
+                                    if (lastSentence.toLowerCase().startsWith('photographed by')) {
+                                        instructions = instructions.slice(0, instructions.lastIndexOf('.'));
+                                    }
+                                    return instructions
+                                })()}
                             </p>
                         </div>
+
                     )}
                 </div>
 
                 {isRecipeSaved ? (
                     <p
                         onClick={handleRemoveClick}
-                        className="mt-2 text-red-500 hover:text-blue-700 cursor-pointer"
+                        className="mt-2 text-red-500 hover:text-blue-700 cursor-pointer text-left"
                     >
                         Remove from favourite recipes
                     </p>
                 ) : (
                     <p
                         onClick={handleSaveClick}
-                        className="mt-2 text-green-500 hover:text-blue-700 cursor-pointer"
+                        className="mt-2 text-green-500 hover:text-blue-700 cursor-pointer text-left"
                     >
                         Save to favourite recipes
                     </p>
