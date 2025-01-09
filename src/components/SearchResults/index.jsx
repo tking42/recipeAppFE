@@ -15,6 +15,7 @@ const SearchResults = ({ searchResults, user, getSavedRecipes, userRecipes, setH
         } else if (direction === 'prev' && currentPage > 1) {
             setCurrentPage(currentPage - 1);
         }
+        window.scrollTo(0, 0)
     }
 
     return (
@@ -48,6 +49,7 @@ const SearchResults = ({ searchResults, user, getSavedRecipes, userRecipes, setH
                 setShowSearchResults('hidden');
                 setSearchInput('');
                 setCurrentPage(1)
+                window.scrollTo(0, 0)
             }}>BACK</p>
         </>
     );

@@ -18,6 +18,7 @@ const RecipeResults = ({ recipesReturned, hidden, setHidden, setHide, ing1, ing2
         } else if (direction === 'prev' && currentPage > 1) {
             setCurrentPage(currentPage - 1);
         }
+        window.scrollTo(0, 0)
     };
 
     return (
@@ -56,6 +57,7 @@ const RecipeResults = ({ recipesReturned, hidden, setHidden, setHide, ing1, ing2
                 setIngredient4('');
                 setIngredient5('');
                 setCurrentPage(1)
+                window.scrollTo(0, 0)
             }}>BACK</p>
         </div>
     );

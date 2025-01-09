@@ -11,6 +11,7 @@ const Nav = ({ setLoggedIn, loggedIn, setUser, hide, setHideWhenUseSearch, hideW
         } else {
             setLoggedIn(false)
         }
+        window.scrollTo(0, 0)
     }
 
     return (

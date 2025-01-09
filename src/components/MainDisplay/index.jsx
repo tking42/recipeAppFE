@@ -12,6 +12,7 @@ const MainDisplay = ({loggedIn, user, hide, setHide, setHideWhenUseSearch, getSa
     const changeDisplay=  () => {
         setHideSaved('')
         setHide('hidden')
+        window.scrollTo(0, 0)
     }
 
     return (

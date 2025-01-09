@@ -16,6 +16,7 @@ const SavedRecipes = ({ userRecipes, user, setHide, hideSaved, setHideSaved, get
         } else if (direction === 'prev' && currentPage > 1) {
             setCurrentPage(currentPage - 1);
         }
+        window.scrollTo(0, 0)
     };
 
     return (
@@ -45,6 +46,7 @@ const SavedRecipes = ({ userRecipes, user, setHide, hideSaved, setHideSaved, get
                 setHideSaved('hidden');
                 setHide('');
                 setCurrentPage(1)
+                window.scrollTo(0, 0)
             }}>BACK</p>
         </div>
     );

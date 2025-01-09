@@ -32,6 +32,7 @@ const LoginForm = ({email, password, setColourMessage, setLoggedIn, setShowLogin
             setEmail("")
             setPassword("")
         }
+        window.scrollTo(0, 0)
     }
 
     return (

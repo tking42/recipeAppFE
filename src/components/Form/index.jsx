@@ -28,6 +28,7 @@ const Form = ({hide, setHide, user, userRecipes, getSavedRecipes, setWidth, setG
         setRecipesReturned(results)
         setWidth('')
         setGap('')
+        window.scrollTo(0, 0)
     }
 
     return (
