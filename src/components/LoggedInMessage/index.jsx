@@ -1,5 +1,4 @@
 const LoggedInMessage = ({ hide, user, getSavedRecipes, changeDisplay }) => {
-    console.log(user)
     return (
         <div className={`${hide} mb-4 flex flex-col justify-center items-center`}>
             <p className="text-2xl text-center">

@@ -4,7 +4,7 @@ const LoginForm = ({email, password, setColourMessage, setLoggedIn, setShowLogin
 
     const handleLogin = async (e) => {
         e.preventDefault();
-        const response = await fetch(`http://localhost:3002/login`, {
+        const response = await fetch(`https://recipefinder.2024-thomask.dev.io-academy.uk/login`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

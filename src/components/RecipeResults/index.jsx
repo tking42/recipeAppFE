@@ -3,7 +3,7 @@ import RecipeCard from "../RecipeCard/index.jsx";
 import Pagination from "../Pagination/index.jsx";
 
 const RecipeResults = ({ recipesReturned, hidden, setHidden, setHide, ing1, ing2, ing3, ing4, ing5, user, userRecipes, getSavedRecipes, setWidth, setGap, setIngredient1, setIngredient2, setIngredient3, setIngredient4, setIngredient5 }) => {
-    const sortedRecipes = recipesReturned.sort((a, b) => b.ingredient_match_count - a.ingredient_match_count);
+    const sortedRecipes = recipesReturned.sort((a, b) => b.ingredient_match_count - a.ingredient_match_count)
 
     const itemsPerPage = 10;
     const [currentPage, setCurrentPage] = useState(1);

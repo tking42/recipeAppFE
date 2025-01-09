@@ -13,8 +13,7 @@ const Search = ({setHideWhenUseSearch, hideWhenUseSearch, user, getSavedRecipes,
         if (!searchInput) {
             return
         }
-
-        const response = await fetch(`http://localhost:3002/search`, {
+        const response = await fetch(`https://recipefinder.2024-thomask.dev.io-academy.uk/search`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -22,9 +21,9 @@ const Search = ({setHideWhenUseSearch, hideWhenUseSearch, user, getSavedRecipes,
             body: JSON.stringify({ searchInput }),
         })
 
-        const data = await response.json();
-        setSearchResults(data.searchResults)
-        console.log(data)
+        const data = await response.json()
+        console.log(data.results)
+        setSearchResults(data.results)
         setHideWhenUseSearch('hidden')
         setShowSearchResults('')
     }

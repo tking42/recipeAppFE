@@ -12,15 +12,14 @@ function App() {
 
     const getSavedRecipes = async () => {
         const user_id = user.id
-        const response = await fetch(`http://localhost:3002/getSavedRecipes?user_id=${user_id}`, {
+        const response = await fetch(`https://recipefinder.2024-thomask.dev.io-academy.uk/getSavedRecipes?user_id=${user_id}`, {
             method: "GET",
             headers: {
                 "Content-Type": "application/json",
             }
         })
         const data = await response.json()
-        const savedRecipes = data.savedRecipes
-        setUserRecipes(savedRecipes)
+        setUserRecipes(data.results)
     }
 
     return (

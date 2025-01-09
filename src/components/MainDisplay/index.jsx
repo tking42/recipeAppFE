@@ -20,7 +20,7 @@ const MainDisplay = ({loggedIn, user, hide, setHide, setHideWhenUseSearch, getSa
               <WelcomeMessage/>
             ) : (
                 <div>
-                <div className={`flex flex-col md:flex-row md:justify-center gap-4 md:content-normal md:gap-${gap} md:p-6 text-center md:text-left mx-4`}>
+                <div className={`flex flex-col md:flex-row md:justify-center gap-4 md:content-normal md:gap-${gap} md:p-8 text-center md:text-left mx-4`}>
                     <div className={`md:w-${width}`}>
                     <LoggedInMessage changeDisplay={changeDisplay}
                                          user={user}

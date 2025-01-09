@@ -3,7 +3,7 @@ const RegisterForm = ({emailReg, passwordReg, confirmEmailReg, confirmPasswordRe
                           setPasswordReg, setConfirmEmailReg, lastName, firstName, setLastName, setFirstName}) => {
     const handleRegister = async (e) => {
         e.preventDefault()
-        const response = await fetch(`http://localhost:3002//register`, {
+        const response = await fetch(`https://recipefinder.2024-thomask.dev.io-academy.uk/register`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

@@ -10,7 +10,7 @@ const RecipeModal = ({ recipe, onClose, user, userRecipes, getSavedRecipes }) =>
     const handleSaveClick = async () => {
         const recipe_id = recipe.id;
         const user_id = user.id;
-        await fetch(`http://localhost:3002/saveRecipe`, {
+        await fetch(`https://recipefinder.2024-thomask.dev.io-academy.uk/saveRecipe`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -30,7 +30,7 @@ const RecipeModal = ({ recipe, onClose, user, userRecipes, getSavedRecipes }) =>
     const handleConfirmRemove = async () => {
         const recipe_id = recipe.id;
         const user_id = user.id;
-        await fetch(`http://localhost:3002/removeRecipe`, {
+        await fetch(`https://recipefinder.2024-thomask.dev.io-academy.uk/removeRecipe`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -43,7 +43,7 @@ const RecipeModal = ({ recipe, onClose, user, userRecipes, getSavedRecipes }) =>
         getSavedRecipes();
         setShowConfirmModal(false)
         onClose()
-    };
+    }
 
     const handleCancelRemove = () => {
         setShowConfirmModal(false)

@@ -20,12 +20,12 @@ const Form = ({hide, setHide, user, userRecipes, getSavedRecipes, setWidth, setG
     const handleSubmit = async (e) => {
         e.preventDefault();
         const response = await fetch(
-            `http://localhost:3002/getFormResults?ingredient1=${ingredient1}&ingredient2=${ingredient2}&ingredient3=${ingredient3}&ingredient4=${ingredient4}&ingredient5=${ingredient5}`
+            `https://recipefinder.2024-thomask.dev.io-academy.uk/getFormResults?ingredient1=${ingredient1}&ingredient2=${ingredient2}&ingredient3=${ingredient3}&ingredient4=${ingredient4}&ingredient5=${ingredient5}`
         )
         const results = await response.json();
         setHidden('')
         setHide('hidden')
-        setRecipesReturned(results.results)
+        setRecipesReturned(results)
         setWidth('')
         setGap('')
     }
