@@ -69,6 +69,7 @@ const LoginForm = ({email, password, setColourMessage, setLoggedIn, setShowLogin
                     setEmailReg("")
                     setPasswordReg("")
                     setConfirmEmailReg("")
+                    window.scrollTo(0, 0)
                 }}
             >
                                 Register

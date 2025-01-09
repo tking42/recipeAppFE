@@ -27,6 +27,7 @@ const Search = ({setHideWhenUseSearch, hideWhenUseSearch, user, getSavedRecipes,
         console.log(data)
         setHideWhenUseSearch('hidden')
         setShowSearchResults('')
+        window.scrollTo(0, 0)
     }
 
     return (
